@@ -6,7 +6,7 @@
         <title>Nathan Wuff</title>
         <link rel="stylesheet" href="/styles.css">
         <script src="https://kit.fontawesome.com/f51f9f5aee.js" crossorigin="anonymous"></script>
-        <link rel="icon" type="image/x-icon" href="/media/Asym Collie PFP.png">
+        <link rel="icon" type="image/x-icon" href="/media/pfp.jpg">
         <style>
             .heart {
                 position: absolute;
@@ -32,7 +32,7 @@
     <body>
         <!-- Err, hi. what are you looking for :3 -->
         <div class="card">
-            <img src="/media/Asym Collie PFP.png" alt="Avatar" class="avatar" id="avatar">
+            <img src="/media/pfp.jpg" alt="Avatar" class="avatar" id="avatar">
             <h1>Nathan Wuff</h1>
             <p>
                 19 • he/him • Gay 🏳️‍🌈 • Collie <br> Engineer • Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿
@@ -63,10 +63,10 @@
                 const clickY = event.clientY - rect.top;
         
                 // Define the specific region (e.g., top-left corner of the avatar)
-                const regionXStart = rect.width * 0.6; // 70% from the left
-                const regionXEnd = rect.width * 0.75;   // 80% from the left
-                const regionYStart = rect.height * 0.75; // 70% from the top
-                const regionYEnd = rect.height * 0.9;   // 50% from the top
+                const regionXStart = rect.width * 0.45; // 45% from the left
+                const regionXEnd = rect.width * 0.5;   // 50% from the left
+                const regionYStart = rect.height * 0.4; // 40% from the top
+                const regionYEnd = rect.height * 0.55;   // 55% from the top
         
                 // Check if the click is within the defined region
                 if (clickX >= regionXStart && clickX <= regionXEnd && clickY >= regionYStart && clickY <= regionYEnd) {
