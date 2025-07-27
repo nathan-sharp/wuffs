@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8">
+  <!-- Line One -->
+  <rect width="8" height="8" x="0" y="0" fill="#ffffff"/>
+  <rect width="8" height="1" x="0" y="0" fill="#794635"/>
+  <rect width="6" height="1" x="1" y="0" fill="#232436"/>
+  <rect width="4" height="1" x="2" y="0" fill="#48495D"/>
+  <!-- Line Two -->
+  <rect width="8" height="1" x="0" y="1" fill="#232436"/>
+  <rect width="6" height="1" x="1" y="1" fill="#E8CDAF"/>
+  <rect width="4" height="1" x="2" y="1" fill="#232436"/>
+  <rect width="2" height="1" x="3" y="1" fill="#48495D"/>
+  <!-- Line Three -->
+  <rect width="8" height="1" x="0" y="2" fill="#232436"/>
+  <rect width="6" height="1" x="1" y="2" fill="#E8CDAF"/>
+  <rect width="4" height="1" x="2" y="2" fill="#ffffff"/>
+  <rect width="1" height="1" x="4" y="2" fill="#48495D"/>
+  <!-- Line Four -->
+  <rect width="3" height="1" x="0" y="3" fill="#232436"/>
+  <rect width="1" height="1" x="3" y="3" fill="#C38D69"/>
+  <!-- Line Five & Six -->
+  <rect width="4" height="2" x="0" y="4" fill="#232436"/>
+  <rect width="1" height="2" x="1" y="4" fill="#A6C4DC"/>
+  <rect width="1" height="2" x="2" y="4" fill="#000000"/>
+  <rect width="1" height="1" x="3" y="5" fill="#C38D69"/>
+  <rect width="1" height="2" x="6" y="4" fill="#A6C4DC"/>
+  <rect width="1" height="2" x="5" y="4" fill="#000000"/>
+  <!-- Line Seven -->
+  <rect width="2" height="1" x="1" y="6" fill="#232436"/>
+  <rect width="2" height="1" x="3" y="6" fill="#000000"/>
+</svg>
+
+<!-- colors -->
+<!-- #794635 -->
+<!-- #232436 -->
+<!-- #48495D -->
+<!-- #E8CDAF -->
+<!-- #C38D69 -->
+<!-- #A6C4DC -->
+<!-- #000000 -->
