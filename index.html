@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nathan Wuff</title>
+        <title>NathanWuff</title>
         <link rel="stylesheet" href="/styles.css">
         <script src="https://kit.fontawesome.com/f51f9f5aee.js" crossorigin="anonymous"></script>
         <link rel="icon" type="image/x-icon" href="/media/icon.svg">
@@ -33,7 +33,7 @@
         <!-- Err, hi. what are you looking for :3 -->
         <div class="card">
             <img src="/media/pfp.jpg" alt="Avatar" class="avatar" id="avatar">
-            <h1>Nathan Wuff</h1>
+            <h1>NathanWuff</h1>
             <p>
                 19 • he/him • Gay 🏳️‍🌈 • Collie <br> Engineer • Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿
             </p>
@@ -44,6 +44,7 @@
                 <a href="https://twitter.com/NathanWuff" title="Twitter (the bird's alive in my heart)" class="fa-brands fa-twitter"></a>
             </div>
             <br>
+            <a href="/about/" class="button">About</a>
             <a href="/ref/" class="button">Ref sheet</a>
         </div>
 
@@ -53,21 +54,21 @@
         <script>
             const avatar = document.getElementById('avatar');
             const heartContainer = document.getElementById('heart-container');
-        
+
             avatar.addEventListener('click', (event) => {
                 // Get the bounding rectangle of the avatar
                 const rect = avatar.getBoundingClientRect();
-        
+
                 // Calculate the click position relative to the avatar
                 const clickX = event.clientX - rect.left;
                 const clickY = event.clientY - rect.top;
-        
+
                 // Define the specific region (e.g., top-left corner of the avatar)
                 const regionXStart = rect.width * 0.45; // 45% from the left
                 const regionXEnd = rect.width * 0.5;   // 50% from the left
                 const regionYStart = rect.height * 0.4; // 40% from the top
                 const regionYEnd = rect.height * 0.55;   // 55% from the top
-        
+
                 // Check if the click is within the defined region
                 if (clickX >= regionXStart && clickX <= regionXEnd && clickY >= regionYStart && clickY <= regionYEnd) {
                     const heart = document.createElement('div');
@@ -75,7 +76,7 @@
                     heart.style.left = `${event.clientX - 10}px`;
                     heart.style.top = `${event.clientY - 10}px`;
                     heartContainer.appendChild(heart);
-        
+
                     // Remove the heart after animation ends
                     setTimeout(() => {
                         heart.remove();
@@ -83,5 +84,6 @@
                 }
             });
         </script>
+        <a href="https://www.w3.org/Style/CSS/Buttons" style="position: absolute; right: 0; bottom: 0; margin: 0.5em;" > <img src="https://www.w3.org/Style/CSS/Buttons/mwcts"></a>
     </body>
 </html>

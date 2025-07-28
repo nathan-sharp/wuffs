@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 }
 
-.card {
+.card, .txt-card {
   background: #232436b3;
   padding: 40px;
   border-radius: 20px;
@@ -18,6 +18,14 @@ body {
   width: 320px;
   color: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.txt-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  text-align: left;
+  width: 800px;
 }
 
 .avatar {
@@ -38,6 +46,11 @@ p {
   font-size: 16px;
   margin: 5px 0 20px;
   color: #bbb;
+}
+
+a {
+  text-decoration: none;
+  color: #A6C4DC;
 }
 
 .socials {

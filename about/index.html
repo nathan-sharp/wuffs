@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nathan Wuff</title>
+        <link rel="stylesheet" href="/styles.css">
+        <script src="https://kit.fontawesome.com/f51f9f5aee.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/x-icon" href="/media/icon.svg">
+    </head>
+    <body>
+        <div class="txt-card">
+            <div class="ascii-avi">
+                <img src="/media/20250125_215626.png" alt="NathanWuff avatar" width="200">
+            </div>
+
+            <div class="txt-content">
+                <h1><a href="/" ><span id="rotating-text"></span>|</a></h1>
+                <p>
+                    My name's Nathan, and I'm a 19 year old Mechanical Engineer from Scotland. I enjoy programming, web development and pretty much any kind of technology.<br>
+                    Thanks for visiting my page! If you want to know more about what I do when I'm not pretending to be a dog, check out my <i>"boring proper"</i> site <a target="_blank" href="https://www.njsharp.uk/">N J Sharp</a>.
+                </p>
+                <br>
+                <hr>
+                <br>
+                <div class="links">
+                    <p>Some cool fluffs from the web</p>
+                    <!-- Add more cool fluffs -->
+                    <a href="https://www.wuffs.xyz/"> <img src="https://www.wuffs.xyz/button.gif"></a>
+                    <a href="https://keeri.place/"> <img src="https://keeri.place/images/button-2024.gif"></a>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Rotating/typewriter text effect
+            const phrases = [
+                "Hello!",
+                "Saluton",
+                "Bonjour",
+                "Salve",
+                "Halò"
+            ];
+            let currentPhrase = 0;
+            let currentChar = 0;
+            let isDeleting = false;
+            const el = document.getElementById('rotating-text');
+            function typeLoop() {
+                const phrase = phrases[currentPhrase];
+                if (isDeleting) {
+                    currentChar--;
+                } else {
+                    currentChar++;
+                }
+                el.textContent = phrase.substring(0, currentChar);
+                let delay = isDeleting ? 60 : 120;
+                if (!isDeleting && currentChar === phrase.length) {
+                    delay = 1200;
+                    isDeleting = true;
+                } else if (isDeleting && currentChar === 0) {
+                    isDeleting = false;
+                    currentPhrase = (currentPhrase + 1) % phrases.length;
+                    delay = 400;
+                }
+                setTimeout(typeLoop, delay);
+            }
+            typeLoop();
+        </script>
+        <a href="https://www.w3.org/Style/CSS/Buttons" style="position: absolute; right: 0; bottom: 0; margin: 0.5em;" > <img src="https://www.w3.org/Style/CSS/Buttons/mwcts"></a>
+    </body>
+</html>
