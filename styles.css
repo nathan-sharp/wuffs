@@ -1,111 +1,73 @@
+/* Super simple retro stylesheet - OC Theme */
+
 body {
-  margin: 0;
-  padding: 0;
-  background: url('/media/background-blur.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
+  margin: 20px;
+  
+  /* OC Palette: Rust Brown background with Warm Tan dots */
+  background-color: #794635;
+  background-image: radial-gradient(#C38D69 2px, transparent 2px);
+  background-size: 15px 15px; /* This controls how far apart the dots are */
+  
+  /* Classic readable fonts */
+  font-family: "Comic Sans MS", "Times New Roman", serif;
+  /* Silver Grey for main text readability */
+  color: #BDBAC3; 
 }
 
-.card, .txt-card {
-  background: #232436b3;
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
-  width: 320px;
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+/* The main layout table */
+.main-table {
+  /* Slate Blue for the main content box */
+  background-color: #48495d;
+  /* Rust Brown for a strong retro border */
+  border-color: #794635;
+  border-style: ridge;
 }
 
-.txt-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  text-align: left;
-  width: 800px;
+h1, h2, h3 {
+  /* Pale Peach for headers to make them pop against the Slate Blue */
+  color: #E8CDAF; 
+  margin-top: 5px;
 }
 
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-size: 24px;
-  margin: 10px 0;
-  color: #A6C4DC;
-}
-
-p {
-  font-size: 16px;
-  margin: 5px 0 20px;
-  color: #bbb;
-}
-
+/* Hyperlinks */
 a {
-  text-decoration: none;
-  color: #A6C4DC;
+  /* Sky Blue for links */
+  color: #A6C4DC; 
+  text-decoration: underline;
 }
 
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.socials a {
-  background: #232436;
-  color: #A6C4DC;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 18px;
-  transition: background 0.3s;
-}
-
-.socials a:hover {
-  background: #A6C4DC;
+a:hover {
+  /* Invert colors on hover: Deep Navy text on Sky Blue background */
   color: #232436;
+  background-color: #A6C4DC; 
 }
 
-.status {
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #A6C4DC;
+/* Visited links */
+a:visited {
+  /* Dusty Rose for links you've already clicked */
+  color: #A56F68; 
 }
 
-.button {
-  background: #232436;
-  border: 2px solid #A6C4DC;
-  color: #A6C4DC;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
+/* Unordered lists */
+ul {
+  list-style-type: square;
+  text-align: left;
 }
 
-.button:hover {
-  background: #A6C4DC;
-  border-color: #A6C4DC;
-  color: #232436;
+/* Images */
+.avatar {
+  /* Warm Tan border for images */
+  border: 3px solid #C38D69;
+  border-style: outset;
 }
 
-.made-with {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 12px;
-  color: #bbb;
+hr {
+  /* Warm Tan dashed lines */
+  border: 1px dashed #C38D69;
+}
+
+/* Color grid specific styling */
+.color-grid {
+  border-color: #232436;
+  border-style: inset;
 }

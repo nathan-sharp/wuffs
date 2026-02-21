@@ -1,71 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nathan Wuff</title>
+        <title>NathanWuff - About Me</title>
         <link rel="stylesheet" href="/styles.css">
-        <script src="https://kit.fontawesome.com/f51f9f5aee.js" crossorigin="anonymous"></script>
         <link rel="icon" type="image/x-icon" href="/media/icon.svg">
+        <script src="/components.js"></script>
     </head>
     <body>
-        <div class="txt-card">
-            <div class="ascii-avi">
-                <img src="/media/20250125_215626.png" alt="NathanWuff avatar" width="200">
-            </div>
+        <center>
+            <table class="main-table" border="4" cellpadding="15" cellspacing="5" width="80%">
+                <tr>
+                    <td id="site-header" align="center" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td id="site-sidebar" width="20%" align="center" valign="top" class="sidebar"></td>
+                    
+                    <td width="80%" valign="top" class="content">
+                        <h2><span id="rotating-text"></span>|</h2>
+                        
+                        <h4>My name is Nathan. I'm a Mechanical Engineering student from Aberdeen.</h4>
+                        
+                        <p>
+                            Being from Aberdeen I have grown up around the oil and gas industry, and so have always been interested in going into the energy industry. However, I am aware that the oil and gas industry will not be here forever, and I want to be part of the new generation that will replace it. 
+                        </p>
 
-            <div class="txt-content">
-                <h1><a href="/" ><span id="rotating-text"></span>|</a></h1>
-                <p>
-                    My name's Nathan, and I'm a 19 year old Mechanical Engineer from Scotland. I enjoy programming, web development and pretty much any kind of technology.<br>
-                    Thanks for visiting my page! If you want to know more about what I do when I'm not pretending to be a dog, check out my <i>"boring proper"</i> site <a target="_blank" href="https://www.njsharp.uk/">N J Sharp</a>.
-                </p>
-                <br>
-                <hr>
-                <br>
-                <div class="links">
-                    <p>Some cool fluffs from the web</p>
-                    <!-- Add more cool fluffs -->
-                    <a target="_blank" href="https://www.wuffs.xyz/"> <img src="https://www.wuffs.xyz/button.gif"></a>
-                    <a target="_blank" href="https://keeri.place/"> <img src="https://keeri.place/images/button-2024.gif"></a>
-                    <a target="_blank" href="https://robophobia.org/"> <img src="https://robophobia.org/buttons/robophobia_button.gif"></a>
-                </div>
-            </div>
-        </div>
-        <script>
-            // Rotating/typewriter text effect
-            const phrases = [
-                "Hello!",
-                "Saluton",
-                "Bonjour",
-                "Salve",
-                "Halò"
-            ];
-            let currentPhrase = 0;
-            let currentChar = 0;
-            let isDeleting = false;
-            const el = document.getElementById('rotating-text');
-            function typeLoop() {
-                const phrase = phrases[currentPhrase];
-                if (isDeleting) {
-                    currentChar--;
-                } else {
-                    currentChar++;
-                }
-                el.textContent = phrase.substring(0, currentChar);
-                let delay = isDeleting ? 60 : 120;
-                if (!isDeleting && currentChar === phrase.length) {
-                    delay = 1200;
-                    isDeleting = true;
-                } else if (isDeleting && currentChar === 0) {
-                    isDeleting = false;
-                    currentPhrase = (currentPhrase + 1) % phrases.length;
-                    delay = 400;
-                }
-                setTimeout(typeLoop, delay);
-            }
-            typeLoop();
-        </script>
-        <a href="https://www.w3.org/Style/CSS/Buttons" style="position: absolute; right: 0; bottom: 0; margin: 0.5em;" > <img src="https://www.w3.org/Style/CSS/Buttons/mwcts"></a>
+                        <p>
+                            And that is why I am hoping to pursue a career in the renewable sector, I am especially drawn to hydro and wind energy as they seem to be the most prevalent in northern europe. 
+                        </p>
+
+                        <p>
+                            I have a keen interest in engineering and design. And in my spare time I enjoy programming and web development, and I am always looking to learn new skills and improve my existing ones. 
+                        </p>
+
+                        <p>
+                            Thanks for visiting my page! If you want to know more about what I do when I'm not pretending to be a dog, check out my other site <a target="_blank" href="https://njs.dev/">NJS.dev</a> which is the site for all my programming and all sorts of other <i>"boring" and "proper"</i> projects. 
+                        </p>
+                        
+                        <br>
+                        <hr>
+                        <br>
+                        
+                        <h2>My button</h2>
+                        <a href="/"> <img src="/button.gif"></a>
+                        <code><a href="https://www.wuffs.xyz/" target="_blank"><img src="https://www.wuffs.xyz/button.gif"></a></code>                        
+                        
+                        <script>
+                            const phrases = ["Hello!", "Saluton", "Bonjour", "Salve", "Halò"];
+                            let currentPhrase = 0;
+                            let currentChar = 0;
+                            let isDeleting = false;
+                            const el = document.getElementById('rotating-text');
+                            function typeLoop() {
+                                const phrase = phrases[currentPhrase];
+                                if (isDeleting) { currentChar--; } else { currentChar++; }
+                                el.textContent = phrase.substring(0, currentChar);
+                                let delay = isDeleting ? 60 : 120;
+                                if (!isDeleting && currentChar === phrase.length) {
+                                    delay = 1200;
+                                    isDeleting = true;
+                                } else if (isDeleting && currentChar === 0) {
+                                    isDeleting = false;
+                                    currentPhrase = (currentPhrase + 1) % phrases.length;
+                                    delay = 400;
+                                }
+                                setTimeout(typeLoop, delay);
+                            }
+                            typeLoop();
+                        </script>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td id="site-footer" align="center" colspan="2"></td>
+                </tr>
+            </table>
+        </center>
     </body>
 </html>

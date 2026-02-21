@@ -1,89 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NathanWuff</title>
+        <title>NathanWuff's Homepage</title>
         <link rel="stylesheet" href="/styles.css">
-        <script src="https://kit.fontawesome.com/f51f9f5aee.js" crossorigin="anonymous"></script>
         <link rel="icon" type="image/x-icon" href="/media/icon.svg">
-        <style>
-            .heart {
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                background-color: red;
-                clip-path: polygon(50% 0%, 61% 19%, 81% 19%, 100% 38%, 100% 62%, 81% 81%, 50% 100%, 19% 81%, 0% 62%, 0% 38%, 19% 19%, 39% 19%);
-                animation: float 2s ease-out forwards;
-            }
-
-            @keyframes float {
-                0% {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
-                100% {
-                    opacity: 0;
-                    transform: translateY(-100px) scale(0.5);
-                }
-            }
-        </style>
+        
+        <script src="/components.js"></script>
     </head>
     <body>
-        <!-- Err, hi. what are you looking for :3 -->
-        <div class="card">
-            <img src="/media/pfp.jpg" alt="Avatar" class="avatar" id="avatar">
-            <h1>NathanWuff</h1>
-            <p>
-                19 • he/him • Gay 🏳️‍🌈 • Collie <br> Engineer • Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿
-            </p>
-            <div class="socials">
-                <a href="https://bsky.app/profile/wuffs.xyz" title="BlueSky" class="fa-brands fa-bluesky"></a>
-                <a href="https://www.youtube.com/@nathanwuff" title="YouTube" class="fa-brands fa-youtube"></a>
-                <a href="https://www.tiktok.com/@nathanwuff" title="TikTok" class="fa-brands fa-tiktok"></a>
-                <a href="https://twitter.com/NathanWuff" title="Twitter (the bird's alive in my heart)" class="fa-brands fa-twitter"></a>
-            </div>
-            <br>
-            <a href="/about/" class="button">About</a>
-            <a href="/ref/" class="button">Ref sheet</a>
-        </div>
-
-        <!-- Container for hearts -->
-        <div id="heart-container"></div>
-
-        <script>
-            const avatar = document.getElementById('avatar');
-            const heartContainer = document.getElementById('heart-container');
-
-            avatar.addEventListener('click', (event) => {
-                // Get the bounding rectangle of the avatar
-                const rect = avatar.getBoundingClientRect();
-
-                // Calculate the click position relative to the avatar
-                const clickX = event.clientX - rect.left;
-                const clickY = event.clientY - rect.top;
-
-                // Define the specific region (e.g., top-left corner of the avatar)
-                const regionXStart = rect.width * 0.45; // 45% from the left
-                const regionXEnd = rect.width * 0.5;   // 50% from the left
-                const regionYStart = rect.height * 0.4; // 40% from the top
-                const regionYEnd = rect.height * 0.55;   // 55% from the top
-
-                // Check if the click is within the defined region
-                if (clickX >= regionXStart && clickX <= regionXEnd && clickY >= regionYStart && clickY <= regionYEnd) {
-                    const heart = document.createElement('div');
-                    heart.className = 'heart';
-                    heart.style.left = `${event.clientX - 10}px`;
-                    heart.style.top = `${event.clientY - 10}px`;
-                    heartContainer.appendChild(heart);
-
-                    // Remove the heart after animation ends
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 2000);
-                }
-            });
-        </script>
-        <a href="https://www.w3.org/Style/CSS/Buttons" style="position: absolute; right: 0; bottom: 0; margin: 0.5em;" > <img src="https://www.w3.org/Style/CSS/Buttons/mwcts"></a>
+        <center>
+            <table class="main-table" border="4" cellpadding="15" cellspacing="5" width="80%">
+                <tr>
+                    <td id="site-header" align="center" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td id="site-sidebar" width="20%" align="center" valign="top" class="sidebar"></td>
+                    
+                    <td width="80%" valign="top" class="content">
+                        <h2>About The Fluffmaster</h2>
+                        <p>19 &bull; he/him &bull; Gay 🏳️‍🌈 &bull; Collie <br> Engineer &bull; Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</p>
+                        <p>This is my personal homepage on the World Wide Web! I'm a huge fan of old school technology and building cool stuff.</p>
+                        
+                        <hr>
+                        
+                        <h3>My Links</h3>
+                        <ul>
+                            <li><a href="https://bsky.app/profile/wuffs.xyz">BlueSky</a></li>
+                            <li><a href="https://www.youtube.com/@nathanwuff">YouTube</a></li>
+                            <li><a href="https://www.tiktok.com/@nathanwuff">TikTok</a></li>
+                            <li><a href="https://twitter.com/NathanWuff">Twitter (the bird's alive in my heart)</a></li>
+                        </ul>
+                    </td>
+                    </tr>
+                <tr>
+                    <td id="site-footer" align="center" colspan="2"></td>
+                </tr>
+            </table>
+        </center>
     </body>
 </html>

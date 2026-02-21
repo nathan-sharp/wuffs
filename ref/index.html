@@ -1,25 +1,65 @@
 <!DOCTYPE html>
-<head>
-    <style>
-        body {
-            background-color: #000;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        img.shrinkToFit {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 100%;
-            max-height: 100%;
-        }
-    </style>
-    <link rel="icon" type="image/x-icon" href="/media/icon.svg">
-</head>
-<html lang="en">
+<html>
+    <head>
+        <title>NathanWuff - Ref Sheet</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="icon" type="image/x-icon" href="/media/icon.svg">
+        <script src="/components.js"></script>
+    </head>
     <body>
-        <img class="shrinkToFit transparent" src="/media/Asym Collie full .png">
+        <center>
+            <table class="main-table" border="4" cellpadding="15" cellspacing="5" width="80%">
+                <tr>
+                    <td id="site-header" align="center" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td id="site-sidebar" width="20%" align="center" valign="top" class="sidebar"></td>
+                    
+                    <td width="80%" valign="top" class="content">
+                        <h2>My Reference Sheet</h2>
+                        <p><i>(Right-click and "View Image" for full resolution!)</i></p>
+                        
+                        <img src="/media/Asym Collie full .png" alt="My Ref Sheet" style="max-width: 100%; height: auto; border: 3px solid #C38D69; border-style: outset;">
+                        
+                        <h2>Color Palette</h2>
+                        <p><i>(Click on any color box to copy the hex code!)</i></p>
+                        
+                        <table border="2" cellpadding="20" cellspacing="10" width="100%" class="color-grid">
+                            <tr>
+                                <td bgcolor="#232436" align="center" onclick="navigator.clipboard.writeText('#232436'); alert('Copied #232436 to clipboard!');" style="cursor:pointer; color:#BDBAC3;">
+                                    <b>#232436</b><br>Deep Navy
+                                </td>
+                                <td bgcolor="#48495d" align="center" onclick="navigator.clipboard.writeText('#48495d'); alert('Copied #48495d to clipboard!');" style="cursor:pointer; color:#BDBAC3;">
+                                    <b>#48495d</b><br>Slate Blue
+                                </td>
+                                <td bgcolor="#BDBAC3" align="center" onclick="navigator.clipboard.writeText('#BDBAC3'); alert('Copied #BDBAC3 to clipboard!');" style="cursor:pointer; color:#232436;">
+                                    <b>#BDBAC3</b><br>Silver Grey
+                                </td>
+                                <td bgcolor="#E8CDAF" align="center" onclick="navigator.clipboard.writeText('#E8CDAF'); alert('Copied #E8CDAF to clipboard!');" style="cursor:pointer; color:#794635;">
+                                    <b>#E8CDAF</b><br>Pale Peach
+                                </td>
+                            </tr>
+                            <tr>
+                                <td bgcolor="#C38D69" align="center" onclick="navigator.clipboard.writeText('#C38D69'); alert('Copied #C38D69 to clipboard!');" style="cursor:pointer; color:#232436;">
+                                    <b>#C38D69</b><br>Warm Tan
+                                </td>
+                                <td bgcolor="#794635" align="center" onclick="navigator.clipboard.writeText('#794635'); alert('Copied #794635 to clipboard!');" style="cursor:pointer; color:#E8CDAF;">
+                                    <b>#794635</b><br>Rust Brown
+                                </td>
+                                <td bgcolor="#A6C4DC" align="center" onclick="navigator.clipboard.writeText('#A6C4DC'); alert('Copied #A6C4DC to clipboard!');" style="cursor:pointer; color:#232436;">
+                                    <b>#A6C4DC</b><br>Sky Blue
+                                </td>
+                                <td bgcolor="#A56F68" align="center" onclick="navigator.clipboard.writeText('#A56F68'); alert('Copied #A56F68 to clipboard!');" style="cursor:pointer; color:#E8CDAF;">
+                                    <b>#A56F68</b><br>Dusty Rose
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="site-footer" align="center" colspan="2"></td>
+                </tr>
+            </table>
+        </center>
     </body>
 </html>
