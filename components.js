@@ -45,6 +45,9 @@ function loadComponents() {
             <a href="https://getfirefox.com/" target="_blank">
                 <img src="/buttons/firefoxget.gif" alt="Get Firefox" border="0">
             </a>
+
+            <iframe src="//incr.easrng.net/badge?key=NathanWuff" style="background: url(//incr.easrng.net/bg.gif)" title="increment badge" width="88" height="31" frameborder="0"></iframe>
+
             <a target="_blank" href="https://keeri.place/">
                 <img src="https://keeri.place/images/button-2024.gif" border="0">
             </a>

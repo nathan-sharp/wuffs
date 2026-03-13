@@ -7,9 +7,7 @@ body {
   background-color: #794635;
   background-image: radial-gradient(#C38D69 2px, transparent 2px);
   background-size: 15px 15px; /* This controls how far apart the dots are */
-  
-  /* Classic readable fonts */
-  font-family: "Comic Sans MS", "Times New Roman", serif;
+
   /* Silver Grey for main text readability */
   color: #BDBAC3; 
 }
