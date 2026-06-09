@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NathanWuff's Purity Test</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="icon" type="image/x-icon" href="/media/icon.svg">
+        
+        <script src="/components.js"></script>
+        <script src="purity.js"></script>
+    </head>
+    <body>
+        <center>
+            <table class="main-table" border="4" cellpadding="15" cellspacing="5" width="80%">
+                <tr>
+                    <td id="site-header" align="center" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td id="site-sidebar" width="20%" align="center" valign="top" class="sidebar"></td>
+                    
+                    <td width="80%" valign="top" class="content">
+                        <h2>The Official Purity Test</h2>
+                        <p>Welcome to the 500-question Purity Test! Let's see how innocent you really are. Click "Yes" if you have done the thing, and "No" if you haven't.</p>
+                        
+                        <hr>
+                        
+                        <div id="quiz-container" style="text-align: center; margin: 30px 0;">
+                            <h3 id="question-progress" style="margin-bottom: 5px;">Question 1 / 500</h3>
+                            <p id="question-text" style="font-size: 1.2em; font-weight: bold; margin-bottom: 20px;">Loading question...</p>
+                            
+                            <button id="btn-yes" style="font-size: 1.2em; padding: 5px 20px; cursor: pointer; margin-right: 10px;">Yes</button>
+                            <button id="btn-no" style="font-size: 1.2em; padding: 5px 20px; cursor: pointer;">No</button>
+                        </div>
+
+                        <div id="result-container" style="display: none; text-align: center; margin: 30px 0;">
+                            <h2>Your Score: <span id="final-score">0</span></h2>
+                            <p id="score-message" style="font-size: 1.2em;"></p>
+                            <br>
+                            <a href="javascript:location.reload()">Take the test again?</a>
+                        </div>
+                        
+                        <br><br>
+                        <p style="font-size: 0.8em; text-align: center;">Questions sourced from the original <a href="https://stuff.mit.edu/people/iggy/Amusements/Purity_andnerd_tests/pure.500" target="_blank">500-Question Purity Test</a>.</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td id="site-footer" align="center" colspan="2"></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

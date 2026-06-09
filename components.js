@@ -29,6 +29,7 @@ function loadComponents() {
                 <li><a href="/about/">About Me</a></li>
                 <li><a href="/ref/">Ref Sheet</a></li>
                 <li><a href="/f@h/">Folding Furries</a></li>
+                <li><a href="/purity/">Purity Test</a></li>
             </ul>
         `;
     }
