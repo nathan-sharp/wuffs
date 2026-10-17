@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NathanWuff's Cyber Space - Live Chat Room</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="icon" type="image/x-icon" href="/media/icon.svg">
+        <script src="/components.js"></script>
+    </head>
+    <body>
+        <center>
+            <table class="main-table" border="4" cellpadding="15" cellspacing="5" width="80%">
+                <tr>
+                    <td id="site-header" align="center" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td id="site-sidebar" width="20%" align="center" valign="top" class="sidebar"></td>
+                    <td width="80%" valign="top" class="content">
+                        <h2>🐾 Cyber Den - Live Chatroom 🐾</h2>
+                        <p>Welcome to the realtime chat room hosted on Cloudflare Workers and Durable Objects. Chat with fellow visitors in realtime!</p>
+
+                        <!-- Status bar -->
+                        <table width="100%" cellpadding="6" cellspacing="0" class="chat-status-bar">
+                            <tr>
+                                <td align="left">
+                                    Status: <span id="chat-status" class="status-badge badge-disconnected">✕ Disconnected</span>
+                                </td>
+                                <td align="right">
+                                    Active Visitors: <b id="chat-user-count">0</b>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+
+                        <!-- Nickname configuration -->
+                        <div class="chat-controls-box">
+                            <label for="input-nickname"><b>Your Handle:</b></label>
+                            <input type="text" id="input-nickname" maxlength="24" class="retro-input" style="width: 160px;">
+                            <button id="btn-set-nickname" class="retro-button">Update Handle</button>
+                            <span id="nickname-feedback" class="status-feedback"></span>
+                        </div>
+
+                        <br>
+
+                        <!-- Chat main area -->
+                        <table width="100%" cellpadding="4" cellspacing="4" class="chat-viewport-table">
+                            <tr>
+                                <td width="75%" valign="top">
+                                    <b>Message Log</b>
+                                    <div id="chat-log" class="chat-log-box" role="log" aria-live="polite"></div>
+                                </td>
+                                <td width="25%" valign="top">
+                                    <b>Online Users</b>
+                                    <div id="chat-users-list" class="chat-users-box">
+                                        <ul id="users-ul" class="users-list"></ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+
+                        <!-- Message composition row -->
+                        <div class="chat-compose-box">
+                            <table width="100%" cellpadding="0" cellspacing="2">
+                                <tr>
+                                    <td>
+                                        <input type="text" id="input-message" maxlength="256" placeholder="Type a message here... (Press Enter to Send)" class="retro-input" style="width: 98%;">
+                                    </td>
+                                    <td width="100" align="right">
+                                        <button id="btn-send-message" class="retro-button" style="width: 90px;">Send</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="right">
+                                        <small id="char-count" style="color: #E8CDAF;">0 / 256</small>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <hr>
+                        <p>
+                            <small>
+                                <i>Rules: Be respectful, no spamming (1 msg/sec limit), max 256 characters per message. Messages persist in Durable Object storage (last 50 messages).</i>
+                            </small>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="site-footer" align="center" colspan="2"></td>
+                </tr>
+            </table>
+        </center>
+        <script src="/chat/chat.js"></script>
+    </body>
+</html>

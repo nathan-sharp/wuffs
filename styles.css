@@ -69,3 +69,162 @@ hr {
   border-color: #232436;
   border-style: inset;
 }
+
+/* Realtime Chatroom Styles - Web 1.0 Retro Aesthetic */
+.chat-status-bar {
+  background-color: #232436;
+  border: 2px inset #794635;
+  color: #E8CDAF;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.badge-connected {
+  background-color: #1a472a;
+  color: #75FF75;
+  border: 1px solid #75FF75;
+}
+
+.badge-connecting {
+  background-color: #594300;
+  color: #FFCC00;
+  border: 1px solid #FFCC00;
+}
+
+.badge-disconnected {
+  background-color: #541a1a;
+  color: #FF7575;
+  border: 1px solid #FF7575;
+}
+
+.chat-controls-box {
+  background-color: #232436;
+  border: 2px inset #794635;
+  padding: 8px;
+  color: #E8CDAF;
+}
+
+.chat-viewport-table {
+  border-collapse: separate;
+}
+
+.chat-log-box {
+  background-color: #232436;
+  border: 2px inset #794635;
+  height: 320px;
+  overflow-y: scroll;
+  padding: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #BDBAC3;
+  text-align: left;
+}
+
+.chat-users-box {
+  background-color: #232436;
+  border: 2px inset #794635;
+  height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  text-align: left;
+}
+
+.users-list {
+  margin: 0;
+  padding-left: 18px;
+  list-style-type: square;
+  color: #E8CDAF;
+}
+
+.chat-entry {
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.chat-time {
+  color: #A56F68;
+  font-size: 11px;
+}
+
+.chat-author {
+  color: #E8CDAF;
+  font-weight: bold;
+}
+
+.chat-text {
+  color: #BDBAC3;
+}
+
+.chat-system-line {
+  color: #A6C4DC;
+  font-style: italic;
+}
+
+.chat-system-text {
+  color: #A6C4DC;
+}
+
+.chat-error-line {
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+.chat-error-text {
+  color: #FF6B6B;
+}
+
+.chat-compose-box {
+  background-color: #232436;
+  border: 2px inset #794635;
+  padding: 8px;
+}
+
+.retro-input {
+  background-color: #232436;
+  color: #E8CDAF;
+  border: 2px inset #C38D69;
+  padding: 4px 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.retro-input:focus {
+  outline: 1px solid #A6C4DC;
+}
+
+.retro-button {
+  background-color: #794635;
+  color: #E8CDAF;
+  border: 2px outset #C38D69;
+  padding: 4px 10px;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.retro-button:hover {
+  background-color: #A6C4DC;
+  color: #232436;
+}
+
+.retro-button:active {
+  border-style: inset;
+}
+
+.status-feedback {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}

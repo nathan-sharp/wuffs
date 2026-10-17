@@ -1,0 +1,14 @@
+{
+  "name": "wuffs",
+  "version": "1.0.0",
+  "description": "NathanWuff's Cyber Space with Realtime Chat",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test tests/chat_room.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
+  }
+}

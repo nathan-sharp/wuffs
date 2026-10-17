@@ -1,0 +1,162 @@
+openapi: 3.1.0
+info:
+  title: Wuffs Cyber Space Realtime Chat API
+  description: Realtime chat room endpoints powered by Cloudflare Workers and Durable Objects.
+  version: 1.0.0
+paths:
+  /api/health:
+    get:
+      summary: Health check endpoint
+      description: Returns service availability status and current epoch timestamp in milliseconds.
+      operationId: getHealthStatus
+      responses:
+        '200':
+          description: Service is online and operational.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /api/room/websocket:
+    get:
+      summary: WebSocket upgrade endpoint
+      description: Upgrades HTTP connection to full-duplex WebSocket stream managed by the ChatRoom Durable Object.
+      operationId: connectChatWebSocket
+      parameters:
+        - name: Upgrade
+          in: header
+          required: true
+          description: Must be set to websocket.
+          schema:
+            type: string
+            enum: [websocket]
+      responses:
+        '101':
+          description: Switching Protocols. WebSocket connection established.
+        '426':
+          description: Upgrade Required. Missing or invalid Upgrade header.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Expected Upgrade: websocket"
+        '500':
+          description: Internal Server Error. Durable Object binding missing.
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - timestamp
+      properties:
+        status:
+          type: string
+          enum: [healthy]
+        timestamp:
+          type: integer
+          description: Current Unix epoch timestamp in milliseconds.
+      additionalProperties: false
+    InboundJoinPayload:
+      type: object
+      required:
+        - type
+        - name
+      properties:
+        type:
+          type: string
+          enum: [join]
+        name:
+          type: string
+          minLength: 1
+          maxLength: 24
+          pattern: '^[a-zA-Z0-9_\- ]+$'
+      additionalProperties: false
+    InboundChatPayload:
+      type: object
+      required:
+        - type
+        - text
+      properties:
+        type:
+          type: string
+          enum: [chat]
+        text:
+          type: string
+          minLength: 1
+          maxLength: 256
+      additionalProperties: false
+    InboundPingPayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum: [ping]
+      additionalProperties: false
+    ChatMessageRecord:
+      type: object
+      required:
+        - id
+        - name
+        - text
+        - timestamp
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          maxLength: 24
+        text:
+          type: string
+          maxLength: 256
+        timestamp:
+          type: integer
+      additionalProperties: false
+    OutboundChatBroadcast:
+      type: object
+      required:
+        - type
+        - message
+      properties:
+        type:
+          type: string
+          enum: [chat]
+        message:
+          $ref: '#/components/schemas/ChatMessageRecord'
+      additionalProperties: false
+    OutboundPresenceBroadcast:
+      type: object
+      required:
+        - type
+        - count
+        - users
+      properties:
+        type:
+          type: string
+          enum: [presence]
+        count:
+          type: integer
+          minimum: 0
+        users:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    OutboundErrorPayload:
+      type: object
+      required:
+        - type
+        - code
+        - message
+      properties:
+        type:
+          type: string
+          enum: [error]
+        code:
+          type: string
+          enum: [INVALID_JSON, INVALID_SCHEMA, INVALID_NICKNAME, INVALID_MESSAGE, RATE_LIMITED]
+        message:
+          type: string
+      additionalProperties: false

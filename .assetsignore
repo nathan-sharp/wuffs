@@ -1,0 +1,10 @@
+.git
+.gitignore
+.assetsignore
+src
+tests
+docs
+package.json
+package-lock.json
+wrangler.jsonc
+node_modules
