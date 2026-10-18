@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem loading page - 404 Not Found</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/media/icon.svg">
+</head>
+<body>
+    <div class="error-page-container">
+        <div class="error-card">
+            <div class="error-art">
+                <img 
+                    src="/media/no-connection.png" 
+                    alt="Nathan collie OC holding disconnected purple power cables"
+                    width="200"
+                    height="233"
+                >
+            </div>
+            <div class="error-details">
+                <h1>Looks like there’s a problem with this site</h1>
+                <p class="error-status">
+                    The server at <strong id="server-hostname">www.wuffs.xyz</strong> sent back an error: 404 Not Found
+                </p>
+                
+                <h2>What can you do about it?</h2>
+                <ul>
+                    <li>Check to make sure you’ve typed the web site address correctly.</li>
+                    <li>The site could be temporarily unavailable or too busy. Try again in a few moments.</li>
+                </ul>
+
+                <div class="error-actions">
+                    <a href="/" class="retro-button">Go to Homepage</a>
+                    <button type="button" id="btn-try-again" class="retro-button">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+            // Safe DOM insertion preventing XSS (OWASP ASVS V5)
+            try {
+                var hostnameEl = document.getElementById("server-hostname");
+                if (hostnameEl && window.location && window.location.hostname) {
+                    hostnameEl.textContent = window.location.hostname;
+                }
+            } catch (err) {
+                // Fail closed
+            }
+
+            var tryAgainButton = document.getElementById("btn-try-again");
+            if (tryAgainButton) {
+                tryAgainButton.addEventListener("click", function() {
+                    window.location.reload();
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

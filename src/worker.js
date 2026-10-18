@@ -302,7 +302,19 @@ export default {
 
     // Fallback to static asset handler
     if (env.ASSETS) {
-      return env.ASSETS.fetch(request);
+      const assetResponse = await env.ASSETS.fetch(request);
+      if (assetResponse.status === 404) {
+        const notFoundUrl = new URL('/404.html', request.url);
+        const notFoundResponse = await env.ASSETS.fetch(new Request(notFoundUrl, request));
+        if (notFoundResponse && notFoundResponse.status === 200) {
+          return new Response(notFoundResponse.body, {
+            status: 404,
+            statusText: 'Not Found',
+            headers: notFoundResponse.headers,
+          });
+        }
+      }
+      return assetResponse;
     }
 
     return new Response('Not Found', { status: 404 });
