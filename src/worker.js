@@ -304,8 +304,22 @@ export default {
     if (env.ASSETS) {
       const assetResponse = await env.ASSETS.fetch(request);
       if (assetResponse.status === 404) {
+        const contentType = assetResponse.headers.get('content-type') || '';
+        if (contentType.includes('text/html') && assetResponse.body) {
+          return assetResponse;
+        }
+
         const notFoundUrl = new URL('/404.html', request.url);
-        const notFoundResponse = await env.ASSETS.fetch(new Request(notFoundUrl, request));
+        let notFoundResponse = await env.ASSETS.fetch(new Request(notFoundUrl, request));
+
+        if (notFoundResponse.status >= 300 && notFoundResponse.status < 400) {
+          const redirectLocation = notFoundResponse.headers.get('Location');
+          if (redirectLocation) {
+            const redirectUrl = new URL(redirectLocation, request.url);
+            notFoundResponse = await env.ASSETS.fetch(new Request(redirectUrl, request));
+          }
+        }
+
         if (notFoundResponse && notFoundResponse.status === 200) {
           return new Response(notFoundResponse.body, {
             status: 404,

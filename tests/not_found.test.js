@@ -98,3 +98,76 @@ test('worker.fetch returns 404 text response when ASSETS binding is missing', as
   const bodyText = await response.text();
   assert.equal(bodyText, 'Not Found');
 });
+
+test('worker.fetch follows 307 canonical redirect when ASSETS normalizes 404.html to /404', async () => {
+  // Arrange
+  const request = new Request('https://www.wuffs.xyz/missing-subpage');
+  const mock404Html = '<html><body><h1>Custom 404 Error</h1></body></html>';
+  const fetchCalls = [];
+
+  const mockEnv = {
+    ASSETS: {
+      async fetch(req) {
+        const url = new URL(req.url);
+        fetchCalls.push(url.pathname);
+
+        if (url.pathname === '/404.html') {
+          return new Response(null, {
+            status: 307,
+            headers: { Location: '/404' },
+          });
+        }
+        if (url.pathname === '/404') {
+          return new Response(mock404Html, {
+            status: 200,
+            headers: { 'Content-Type': 'text/html; charset=utf-8' },
+          });
+        }
+        return new Response('', { status: 404 });
+      },
+    },
+  };
+
+  // Act
+  const response = await worker.fetch(request, mockEnv, {});
+
+  // Assert
+  assert.equal(response.status, 404, 'Response status must be 404');
+  assert.equal(response.statusText, 'Not Found');
+  const bodyText = await response.text();
+  assert.equal(bodyText, mock404Html, 'Body must contain the 404 HTML retrieved after redirect');
+  assert.deepEqual(fetchCalls, ['/missing-subpage', '/404.html', '/404']);
+});
+
+test('worker.fetch serves pre-populated 404 asset when not_found_handling is active', async () => {
+  // Arrange
+  const request = new Request('https://www.wuffs.xyz/missing-static');
+  const mockNative404Html = '<html><body><h1>Native Edge 404</h1></body></html>';
+  let secondaryFetchTriggered = false;
+
+  const mockEnv = {
+    ASSETS: {
+      async fetch(req) {
+        const url = new URL(req.url);
+        if (url.pathname === '/missing-static') {
+          return new Response(mockNative404Html, {
+            status: 404,
+            headers: { 'Content-Type': 'text/html; charset=utf-8' },
+          });
+        }
+        secondaryFetchTriggered = true;
+        return new Response('Not Found', { status: 404 });
+      },
+    },
+  };
+
+  // Act
+  const response = await worker.fetch(request, mockEnv, {});
+
+  // Assert
+  assert.equal(response.status, 404);
+  const bodyText = await response.text();
+  assert.equal(bodyText, mockNative404Html);
+  assert.equal(secondaryFetchTriggered, false, 'Should not trigger secondary asset fetches if 404 body is populated');
+});
+
